@@ -1,0 +1,7 @@
+{
+  "initialValue": 100,
+  "selic": 0.0425,
+  "rentability": 1,
+  "workingDays": 252,
+  "totalWeeks": 36
+}

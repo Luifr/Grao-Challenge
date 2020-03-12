@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
+    "invest": "tsc && node dist/index.js -i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^13.9.0",
     "jest": "^25.1.0",
     "typescript": "^3.8.3"
   }
