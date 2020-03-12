@@ -7,7 +7,6 @@ async function execute() {
     options = JSON.parse(readFileSync('./config/config.json', { encoding: 'utf8' }));
   }
   getRentability(options);
-
 }
 
 execute();
