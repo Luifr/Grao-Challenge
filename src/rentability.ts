@@ -1,3 +1,6 @@
+import { saveData } from "./dataSaver";
+import { getInputFromConsole } from "./readLineAsync";
+
 export interface IRentabilityOptions {
   initialValue?: number;
   selic?: number;
@@ -25,15 +28,23 @@ function monetizeText(value: string | number) {
   return (+value) > 0 ? textColor("$" + value, Colors.Green) : textColor("$" + value, Colors.Red);
 }
 
-export function getRentability({initialValue = 100, selic = 0.0425, rentability = 1, workingDays = 252, totalWeeks = 36} : IRentabilityOptions) {
+export async function getRentability({initialValue = 100, selic = 0.0425, rentability = 1, workingDays = 252, totalWeeks = 36} : IRentabilityOptions) {
 
   if(initialValue < 0 || workingDays < 0 || totalWeeks < 0) throw Error('Problem with some negative arguments');
 
   let principal = parseFloat((initialValue*Math.pow(1+(selic*rentability), totalWeeks*7/workingDays)).toFixed(2));
 
-  console.log(`In ${textColor(totalWeeks, Colors.Blue)} weeks starting with ${monetizeText(initialValue)} you ended with ${monetizeText(principal)}
+  const operationResult = `In ${textColor(totalWeeks, Colors.Blue)} weeks starting with ${monetizeText(initialValue)} you ended with ${monetizeText(principal)}
 Ending with a profit of: ${monetizeText((principal-initialValue).toFixed(2))}
-Considering the selic rate at: ${textColor((selic*100) + "%aa", Colors.Blue)}`);
+Considering the selic rate at: ${textColor((selic*100) + "%aa", Colors.Blue)}\n`;
+
+  console.log(operationResult);
+
+  let answer = await getInputFromConsole('Do you want to save this operation?\nY/N: ', 6000);
+  if (answer && answer.match(/y|yes|s|sim/)) {
+    saveData(operationResult);
+    console.log('Data succesfull saved at data/data.json');
+  }
 
   return principal;
 }

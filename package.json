@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsc && node dist/index.js",
     "invest": "tsc && node dist/index.js -i",
+    "report": "tsc && node dist/index.js -r",
     "test": "jest"
   },
   "keywords": [],

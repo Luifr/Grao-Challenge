@@ -1,9 +1,13 @@
 import { readFileSync } from 'fs';
+import { getReport } from './dataSaver';
 import { getRentability, IRentabilityOptions } from './rentability';
 
 async function execute() {
   let options: IRentabilityOptions = {};
-  if (process.argv[2] == '-i') {
+  if (process.argv[2] == '-r') {
+    return console.log(getReport());
+  }
+  else if (process.argv[2] == '-i') {
       try{
         options = JSON.parse(readFileSync('./config/config.json', { encoding: 'utf8' }));
       }
