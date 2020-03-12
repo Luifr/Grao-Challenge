@@ -13,6 +13,7 @@ async function execute() {
         return;
       }
   }
+
   getRentability(options);
 }
 

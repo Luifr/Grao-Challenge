@@ -27,11 +27,13 @@ function monetizeText(value: string | number) {
 
 export function getRentability({initialValue = 100, selic = 0.0425, rentability = 1, workingDays = 252, totalWeeks = 36} : IRentabilityOptions) {
 
-  if(initialValue < 0 || workingDays < 0 || totalWeeks < 0) return console.log('Problem with some negative arguments');
+  if(initialValue < 0 || workingDays < 0 || totalWeeks < 0) throw Error('Problem with some negative arguments');
 
   let principal = parseFloat((initialValue*Math.pow(1+(selic*rentability), totalWeeks*7/workingDays)).toFixed(2));
+
   console.log(`In ${textColor(totalWeeks, Colors.Blue)} weeks starting with ${monetizeText(initialValue)} you ended with ${monetizeText(principal)}
 Ending with a profit of: ${monetizeText((principal-initialValue).toFixed(2))}
 Considering the selic rate at: ${textColor((selic*100) + "%aa", Colors.Blue)}`);
+
   return principal;
 }
