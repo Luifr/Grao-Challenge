@@ -7,7 +7,9 @@
     "start": "tsc && node dist/index.js",
     "invest": "tsc && node dist/index.js -i",
     "report": "tsc && node dist/index.js -r",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src/index.ts",
+    "lint-fix": "eslint src/index.ts --fix"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,9 @@
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"

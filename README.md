@@ -13,6 +13,11 @@
     - With this command configurations will be read from `config/config.json`, be sure to get create it using the template: `config/config.json.template`
   - `npm run report`
     - See all reports that you have saved
+  - `npm run lint`
+    - Checkfor styles, problems and errors
+  - `npm run lint-fix`
+    - Fix some errors
+
 
 ### Saving reports
   - After runing `npm start` or `npm run invest` you will be asked to save the report, it will timeout in some seconds and wont be saved if not answered
