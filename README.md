@@ -22,5 +22,9 @@
   - workingDays: how much work days there are this year
   - totalWeeks: how much time (in weeks) will the investor leave his money yielding
 
+### Docker
+  - `docker build -t <imageName> .`
+  - `docker run <imageName>`
+
 ### Testing
   - `npm test`
